@@ -17,7 +17,7 @@ def main(config_path='io_args.yml'):
         if not os.path.exists(lang_pair_work_directory):
             os.makedirs(lang_pair_work_directory)
 
-        for entry in os.scandir(os.path.join(cfg['source_data_directory'], 'snt')):
+        for entry in os.scandir(cfg['preprocessed_source_data_directory']):
             if not entry.name.endswith('_{}.snt'.format(cfg['source_language'])):
                 continue
 

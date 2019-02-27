@@ -7,9 +7,8 @@ A set of scripts to build parallel corpora using mALIGNa
 <pre><code>
 ${corpus_title}
 |-- source
-|   |-- snt
-|       |-- ${title}_${source_lang}.snt
-|       |-- ${title}_${target_lang}.snt
+|   |-- ${title}_${source_lang}.snt
+|   |-- ${title}_${target_lang}.snt
 |-- work
 |   |-- ${source_lang}-${target_lang}
 |       |-- ${title}_${source_lang}.snt
@@ -33,11 +32,10 @@ ${corpus_title}
 * The content of source files must be segmented in sentences (one sentence per line).
 * Filenames of input files must have the following pattern: _${title}\_${lang}.snt_ (e.g. _document\_en.snt_).
 * Parallel files must have identical titles (e.g. _article\_001\_en.snt_, _article\_001\_fr.snt_).
-* There are two source data directories - _'original_source_data_directory'_ and _'source_data_directory'_ - specified in the YAML file.
+* There are two source data directories - _'original_source_data_directory'_ and _'preprocessed_source_data_directory'_ - specified in the YAML file.
 The 'original_source_data_directory' is used for files containing sentences in natural language (i.e. unmodified sentences).
-The _'source_data_directory'_ is used for additionaly preprocessed files originated from the 'original_source_data_directory' (e.g. stemmed files, additionally tokenized files etc.).
-In both directories, files must be stored in the _'snt'_ subfolder.
-The sentence alignment itself is done using the content from the _'source_data_directory'_.
+The _'preprocessed_source_data_directory'_ is used for additionaly preprocessed files originated from the _'original_source_data_directory'_ (e.g. stemmed files, additionally tokenized files etc.).
+The sentence alignment itself is done using the content from the _'preprocessed_source_data_directory'_.
 On the contrary, the building of parallel corpora is done using the content from _'original_source_data_directory'_.
 If no additional preprocessing has been made on source files, both paths must be equal.
 * The _'work'_, _'aligned_idx'_ and _'result'_ directories are created automatically.
@@ -58,7 +56,7 @@ maligna:
   main_class: net.loomchild.maligna.ui.console.Maligna
 
 original_source_data_directory: [...]\aligned_corpora\source
-source_data_directory: [...]\aligned_corpora\source
+preprocessed_source_data_directory: [...]\aligned_corpora\source
 work_directory: [...]\aligned_corpora\work
 alignment_index_directory: [...]\aligned_corpora\aligned_idx
 output_data_directory: [...]\aligned_corpora\result

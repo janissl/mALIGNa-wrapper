@@ -8,7 +8,7 @@ maligna:
   main_class: net.loomchild.maligna.ui.console.Maligna
 
 original_source_data_directory: /path/to/directory/of/original/source
-source_data_directory: /path/to/directory/of/prepared/source
+preprocessed_source_data_directory: /path/to/directory/of/prepared/source
 work_directory: /path/to/directory/of/work/files
 alignment_index_directory: /path/to/directory/of/sentence/index/files
 output_data_directory: /path/to/directory/of/output/files
